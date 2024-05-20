@@ -29,7 +29,8 @@ export const Wrapper = styled.button<{variant:IconButtonProps['variant']}>`
 
                 &:hover,
                 &:focus {
-                    color: var(--purple-light);
+                    background-color: var(--gray-300);
+                    color: var(--purple-dark);
                 }
             `
         }

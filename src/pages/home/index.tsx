@@ -1,8 +1,11 @@
 import { MapPin, ShoppingCart, MagnifyingGlass, Plus } from '@phosphor-icons/react'
-import styles from '../home/style.module.css'
+import styles from './style.module.css'
 import { Button } from '../../components/buttons/Button'
 import { IconButton } from '../../components/buttons/IconButton'
 import { CartButton } from '../../components/buttons/CartButton'
+import { Tag } from '../../components/Tag'
+import { Counter } from '../../components/Counter'
+import { PrimaryCard } from '../../components/cards/PrimaryCard'
 
 function Home() {
     return (
@@ -45,6 +48,11 @@ function Home() {
                 </IconButton>
 
                 <CartButton quantity={1} />
+                <Tag>
+                    Traditional
+                </Tag>
+                <Counter>1</Counter>
+                <PrimaryCard price={9.99}></PrimaryCard>
             </section>
         </>
     )

@@ -1,6 +1,6 @@
 import { ReactNode } from "react"
 
 export type TagProps = {
-    variant: 'default' | 'selected',
+    variant?: 'default' | 'selected',
     children: ReactNode
 }
