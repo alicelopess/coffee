@@ -8,7 +8,7 @@ import { PrimaryCardProps } from "./types";
 export function ProductCard({price, cardOption}:PrimaryCardProps) {
     return (
         <Wrapper cardOption={cardOption}>
-            { cardOption === 'primary' 
+            { cardOption === 'primary' || cardOption === undefined 
                 ? 
                     <>
                     <CardImage />

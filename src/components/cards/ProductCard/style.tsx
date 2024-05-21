@@ -3,7 +3,8 @@ import { PrimaryCardProps } from "./types";
 
 export const Wrapper = styled.div<{cardOption:PrimaryCardProps['cardOption']}>`
     background-color: var(--gray-200);
-    max-width: 166.4px;
+    min-width: 166.4px;
+    height: fit-content;
     
     padding: 4.5rem .75rem 1rem;
 
@@ -25,7 +26,7 @@ export const Wrapper = styled.div<{cardOption:PrimaryCardProps['cardOption']}>`
     ${({cardOption}) => {
         if (cardOption === 'secondary') {
             return css`
-                max-width: 311px;
+                min-width: 311px;
     
                 padding: 1rem 1rem 1rem 7.25rem;
 

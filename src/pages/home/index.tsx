@@ -1,12 +1,11 @@
 import { MapPin, ShoppingCart, MagnifyingGlass, Plus } from '@phosphor-icons/react'
 import styles from './style.module.css'
+import { ProductCard } from '../../components/cards/ProductCard'
+import { Tag } from '../../components/Tag'
 import { Button } from '../../components/buttons/Button'
 import { IconButton } from '../../components/buttons/IconButton'
 import { CartButton } from '../../components/buttons/CartButton'
-import { Tag } from '../../components/Tag'
 import { Counter } from '../../components/Counter'
-import { ProductCard } from '../../components/cards/ProductCard'
-import { SecondaryCard } from '../../components/cards/SecondaryCard'
 
 function Home() {
     return (
@@ -30,33 +29,63 @@ function Home() {
                     </div>
                 </header>
             </section>
+            <section className={styles.catalogSection}>
+                <div className={styles.catalogSugestionsSection}>
+                    <ProductCard price={9.99} cardOption='primary'></ProductCard>
+                    <ProductCard price={9.99} cardOption='primary'></ProductCard>
+                    <ProductCard price={9.99} cardOption='primary'></ProductCard>
+                </div>
+                
+                <div className={styles.catalogProductsSection}>
+                    <header className={styles.catalogProductsHeader}>
+                        <span>Nossos cafés</span>
+                        <div className={styles.catalogFilterWrapper}>
+                            <Tag>Tradicionais</Tag>
+                            <Tag>Doces</Tag>
+                            <Tag>Especiais</Tag>
+                        </div>
+                    </header>
+                    <div className={styles.catalogProductsList}>
+                        <div className={styles.catalogProductFilteredList}>
+                            <span className={styles.typeTitle}>Tradicionais</span>
+                            <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+                            <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+                            <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+                        </div>
+                        <div className={styles.catalogProductFilteredList}>
+                            <span className={styles.typeTitle}>Doces</span>
+                            <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+                            <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+                            <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             {/* Example */}
-            <Button onClick={() => console.log('Hello')} >
-                    Click Here
-                </Button>
-                <Button onClick={() => console.log('Hello')} variant='purple'>
-                    Click Here
-                </Button>
-                <Button onClick={() => console.log('Hello')} variant='yellow'>
-                    Click There
-                </Button>
-                <Button onClick={() => console.log('Hello')} variant='ghost'>
-                    Click There
-                </Button>
+            {/* <Button onClick={() => console.log('Hello')} >
+                Click Here
+            </Button>
+            <Button onClick={() => console.log('Hello')} variant='purple'>
+                Click Here
+            </Button>
+            <Button onClick={() => console.log('Hello')} variant='yellow'>
+                Click There
+            </Button>
+            <Button onClick={() => console.log('Hello')} variant='ghost'>
+                Click There
+            </Button>
 
-                <IconButton onClick={() => console.log('Hello')}>
-                    <Plus size={20} />
-                </IconButton>
+            <IconButton onClick={() => console.log('Hello')}>
+                <Plus size={20} />
+            </IconButton>
 
-                <CartButton quantity={1} />
-                <Tag>
-                    Traditional
-                </Tag>
-                <Counter>1</Counter>
-                <ProductCard price={9.99}></ProductCard>
-                <ProductCard price={9.99} cardOption='secondary'></ProductCard>
-                <SecondaryCard price={9.99}></SecondaryCard>
+            <CartButton quantity={1} />
+            <Counter>1</Counter>
+            <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+            <SecondaryCard price={9.99}></SecondaryCard> */}
+
+
         </>
     )
 }

@@ -1,5 +1,6 @@
 .introSection {
-    padding: 0 2rem;
+    padding: 0 2rem 0;
+    /* padding: 44px 2rem 0; */
     background-color: var(--gray-900);
 }
 
@@ -75,6 +76,67 @@
     left: .75rem;
     transform: translateY(-50%);
 }
+
+.catalogSection {
+    padding: 210px 2rem 44px;
+    background-color: var(--gray-100);
+}
+
+.catalogSugestionsSection {
+    background-color: transparent;
+    border: 1px solid blueviolet;
+    
+    position: absolute;
+    top: 229px;
+    left: 0;
+
+    height: 323px;
+    padding: 2rem;
+    
+    display: flex;
+    gap: 2rem;
+
+    /* overflow-x: scroll; */
+}
+
+.catalogProductsHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+
+    padding: 1rem 0;
+
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--gray-700);
+}
+
+.catalogFilterWrapper {
+    display: flex;
+    gap: .5rem;
+}
+
+.catalogProductsList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+}
+
+.catalogProductFilteredList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--gray-600);
+}
+
 
 /* Responsive Layout */
 

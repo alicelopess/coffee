@@ -5,7 +5,7 @@ export const Wrapper = styled.div<{imageSize:CardImageProps['imageSize'], cardOr
     width: 4rem;
     height: 4rem;
 
-    border: 1px solid black;
+    border: 1px solid yellow;
 
     position: absolute;
     top: 0;
