@@ -1,3 +1,4 @@
 export type CardImageProps = {
-    variant: 'image-sm' | 'image-md' | 'image-lg' 
+    imageSize?: 'image-sm' | 'image-md' | 'image-lg' 
+    cardOrientation?: 'vertical' | 'horizontal',
 }

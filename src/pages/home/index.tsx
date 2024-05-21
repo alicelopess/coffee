@@ -5,7 +5,8 @@ import { IconButton } from '../../components/buttons/IconButton'
 import { CartButton } from '../../components/buttons/CartButton'
 import { Tag } from '../../components/Tag'
 import { Counter } from '../../components/Counter'
-import { PrimaryCard } from '../../components/cards/PrimaryCard'
+import { ProductCard } from '../../components/cards/ProductCard'
+import { SecondaryCard } from '../../components/cards/SecondaryCard'
 
 function Home() {
     return (
@@ -28,9 +29,10 @@ function Home() {
                         <input type="text" name="#" id="#" className={styles.searchInput} placeholder="Pesquisar" />
                     </div>
                 </header>
+            </section>
 
-                {/* Example */}
-                <Button onClick={() => console.log('Hello')} >
+            {/* Example */}
+            <Button onClick={() => console.log('Hello')} >
                     Click Here
                 </Button>
                 <Button onClick={() => console.log('Hello')} variant='purple'>
@@ -52,8 +54,9 @@ function Home() {
                     Traditional
                 </Tag>
                 <Counter>1</Counter>
-                <PrimaryCard price={9.99}></PrimaryCard>
-            </section>
+                <ProductCard price={9.99}></ProductCard>
+                <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+                <SecondaryCard price={9.99}></SecondaryCard>
         </>
     )
 }

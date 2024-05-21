@@ -3,6 +3,7 @@ import { TagProps } from "./types";
 
 export const Wrapper = styled.div<{variant:TagProps['variant']}> `
     /* min-width: ; */
+    max-width: max-content;
     padding: .375rem .75rem;
     border: 1px solid var(--purple);
     border-radius: 100rem;

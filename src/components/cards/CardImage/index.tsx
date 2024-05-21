@@ -1,9 +1,9 @@
 import { Wrapper, Image } from "./style";
 import { CardImageProps } from "./types";
 
-export function CardImage({variant}:CardImageProps) {
+export function CardImage({imageSize, cardOrientation}:CardImageProps) {
     return (
-        <Wrapper variant={variant}>
+        <Wrapper imageSize={imageSize} cardOrientation={cardOrientation}>
             <Image src="#" alt="#" />
         </Wrapper>
     )

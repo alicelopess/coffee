@@ -2,5 +2,6 @@
 export type CardInfoProps = {
     title: string,
     description: string,
-    variant?: 'title-sm',
+    titleOptions?: 'title-sm',
+    alignOptions?: 'center' | 'left' | 'right'
 }
