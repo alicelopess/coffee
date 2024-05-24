@@ -1,10 +1,10 @@
 import { MapPin, ShoppingCart, MagnifyingGlass, Plus } from '@phosphor-icons/react'
 import styles from './style.module.css'
+import { CartButton } from '../../components/buttons/CartButton'
 import { ProductCard } from '../../components/cards/ProductCard'
 import { Tag } from '../../components/Tag'
 import { Button } from '../../components/buttons/Button'
 import { IconButton } from '../../components/buttons/IconButton'
-import { CartButton } from '../../components/buttons/CartButton'
 import { Counter } from '../../components/Counter'
 
 function Home() {
@@ -14,12 +14,13 @@ function Home() {
                 <nav className={styles.navigationBar}>
                     <div className={styles.locationWrapper}>
                         <MapPin size={20} weight="fill" color="#8047F8" />
-                        <p className="location">Porto Alegre, RS</p>
+                        <span className={styles.location}>Porto Alegre, RS</span>
                     </div>
 
-                    <div className={styles.cartWrapper}>
+                    {/* <div className={styles.cartWrapper}>
                         <ShoppingCart size={20} weight="fill" color="#C47F17"/>
-                    </div>
+                    </div> */}
+                    <CartButton quantity={0} />
                 </nav>
                 <header className={styles.introSectionHeader}>
                     <span className={styles.headerTitle}>Encontre o café perfeito para qualquer hora do dia</span>
