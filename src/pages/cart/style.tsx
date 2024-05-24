@@ -13,10 +13,9 @@ export const Wrapper = styled.div `
     color: var(--gray-800);
 `
 export const Header = styled.header `
-    display: flex;
-    /* grid-template-columns: 1fr 1fr; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
-    justify-content: flex-start;
 
     padding: 26px 32px;
 `
@@ -26,6 +25,8 @@ export const HeaderTitle = styled.span `
     font-size: 1rem;
     font-weight: 700;
     color: var(--gray-800);
+
+    justify-self: center;
 `
 export const Main = styled.footer `
     background-color: var(--gray-100);

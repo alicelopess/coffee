@@ -1,7 +1,7 @@
 import { ArrowLeft } from "@phosphor-icons/react"
 import { Button } from "../../components/buttons/Button"
 import { Footer, FooterDescription, FooterPriceWrapper, Main, Header, HeaderTitle, Wrapper } from "./style"
-import { CartItem } from "../../components/cards/CartCard"
+import { CartCard } from "../../components/cards/CartCard"
 
 function Cart() {
     return (
@@ -11,10 +11,9 @@ function Cart() {
                 <HeaderTitle>Carrinho</HeaderTitle>
             </Header>
             <Main>
-                Itens
-                <CartItem />
-                <CartItem />
-                <CartItem />
+                <CartCard />
+                <CartCard />
+                <CartCard />
             </Main>
             <Footer>
                 <FooterDescription>

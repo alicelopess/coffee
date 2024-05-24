@@ -3,15 +3,15 @@ import { IconButton } from "../buttons/IconButton";
 import { CounterText, Wrapper } from "./style";
 import { CounterProps } from "./types";
 
-export function Counter({children}:CounterProps) {
+export function Counter({children, variant}:CounterProps) {
     return (
-        <Wrapper>
+        <Wrapper variant={variant}>
             <IconButton onClick={() => console.log(+1)} variant="ghost">
-                <Plus />
+                <Plus size={20}/>
             </IconButton>
             <CounterText>{children}</CounterText>
             <IconButton onClick={() => console.log(-1)} variant="ghost">
-                <Minus />
+                <Minus size={20}/>
             </IconButton>
         </Wrapper>
     )

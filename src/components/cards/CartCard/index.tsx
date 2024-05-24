@@ -3,7 +3,7 @@ import { Counter } from "../../Counter";
 import { IconButton } from "../../buttons/IconButton";
 import { ItemMeasure, ItemDescription, ItemPrice, CartItemActions, CartItemContent, CartItemInformation, Wrapper, CartItemImageWrapper } from "./style";
 
-export function CartItem() {
+export function CartCard() {
     return (
         <Wrapper>
             <CartItemImageWrapper>
@@ -21,7 +21,7 @@ export function CartItem() {
                 </ItemPrice>
                 </CartItemInformation>
                 <CartItemActions>
-                    <Counter>1</Counter>
+                    <Counter variant="outlined">1</Counter>
                     <IconButton onClick={() => console.log('Remove Item!')}>
                         <Trash size={20}/>
                     </IconButton>

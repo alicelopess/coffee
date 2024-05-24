@@ -1,6 +1,7 @@
 import styled, { css }  from "styled-components";
 
 export const Wrapper = styled.button<{variant:'default'|'purple'|'yellow'|'ghost'}>`
+    width: 100%;
     border: none;
     padding: .75rem 1rem;
     border-radius: .375rem;
