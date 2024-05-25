@@ -1,6 +1,7 @@
 import styled, { css }  from "styled-components";
+import { ButtonProps } from "./types";
 
-export const Wrapper = styled.button<{variant:'default'|'purple'|'yellow'|'ghost'}>`
+export const Wrapper = styled.button<{variant:ButtonProps['variant'], background:ButtonProps['background'], type:ButtonProps['type']}>`
     width: 100%;
     border: none;
     padding: .75rem 1rem;
@@ -8,8 +9,6 @@ export const Wrapper = styled.button<{variant:'default'|'purple'|'yellow'|'ghost
 
     font-family: "Roboto", sans-serif;
     font-size: .875rem;
-    line-height: 160%;
-    font-weight: 700;
 
     cursor: pointer;
 
@@ -60,6 +59,75 @@ export const Wrapper = styled.button<{variant:'default'|'purple'|'yellow'|'ghost
                     color: var(--purple-light);
                 }
             `
+        }
+        if(variant === 'outlined') {
+            return css `
+                background-color: transparent;
+                border: 1px solid var(--purple);
+                color: var(--purple);
+            `
+        }
+    }}
+
+    ${({background}) => {
+        if(background === 'purple') {
+            return css `
+                background-color: var(--purple-dark);
+                color: var(--white);
+
+                &:hover,
+                &:focus {
+                    background-color: var(--purple);
+                    color: var(--white);
+                }
+            `
+
+        }
+        if(background === 'yellow') {
+            return css `
+                background-color: var(--yellow-dark);
+                color: var(--white);
+
+                &:hover,
+                &:focus {
+                    background-color: var(--yellow);
+                }
+            `
+        }
+        if(background === 'gray') {
+            return css `
+                background-color: var(--gray-400);
+                color: var(--gray-700);
+
+                &:hover,
+                &:focus {
+                    background-color: transparent;
+                    border: 1px solid var(--purple);
+                    color: var(--purple);
+                }
+            `
+
+        }
+    }}
+    ${({type}) => {
+        if(type === 'button') {
+            return css `
+                line-height: 160%;
+                font-weight: 700;
+            `
+
+        }
+        if(type === 'select') {
+            return css `
+                line-height: 130%;
+                font-weight: 400;
+
+                &:hover,
+                &:focus {
+                    font-weight: 700;
+                }
+            `
+
         }
     }}
 `

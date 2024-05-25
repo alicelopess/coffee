@@ -91,6 +91,10 @@ export const FooterSelectionWrapper = styled.div `
     flex-direction: column;
     gap: .5rem;
 `
+export const FooterSelectionOptions = styled.div`
+    display: flex;
+    gap: .5rem;
+`
 export const FooterActionWrapper = styled.div `
     padding: .5rem;
     border-radius: 6px;

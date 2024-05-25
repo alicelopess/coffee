@@ -1,10 +1,10 @@
-import { ReactNode } from "react";
 import { Wrapper } from "./style";
+import { ButtonProps } from "./types";
 
-export function Button({children, onClick, variant='default'}:{children:ReactNode, onClick: () => void, variant?:'default'|'purple'|'yellow'|'ghost'}) {
+export function Button({children, onClick, variant='default', background, type}:ButtonProps) {
 
     return (
-        <Wrapper variant={variant} onClick={onClick}>
+        <Wrapper type={type} background={background} variant={variant} onClick={onClick}>
             {children}
         </Wrapper>
     )

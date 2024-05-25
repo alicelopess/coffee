@@ -6,12 +6,13 @@ import {
 import Home from "./pages/home"
 import Cart from "./pages/cart"
 import Product from "./pages/product"
+import CheckoutFinished from "./pages/checkout/checkout-finished"
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Home/>,
+      element: <Home />,
     },
     {
       path: "/product",
@@ -19,7 +20,11 @@ function App() {
     },
     {
       path: "/cart",
-      element: <Cart/>,
+      element: <Cart />,
+    },
+    {
+      path: "/checkout-success",
+      element: <CheckoutFinished />,
     },
   ])
 

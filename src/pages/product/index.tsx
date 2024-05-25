@@ -1,22 +1,29 @@
+import { useNavigate } from 'react-router-dom'
 import { ArrowLeft } from "@phosphor-icons/react"
-import { Footer, FooterActionWrapper, FooterSelectionWrapper, Main, Navigation, ProductImage, ProductInformation, ProductInformationHeader, ProductPrice, ProductTitle, Wrapper } from "./style"
+import { Footer, FooterActionWrapper, FooterSelectionOptions, FooterSelectionWrapper, Main, Navigation, ProductImage, ProductInformation, ProductInformationHeader, ProductPrice, ProductTitle, Wrapper } from "./style"
 import { CartButton } from "../../components/buttons/CartButton"
 import { Tag } from "../../components/Tag"
 import { Counter } from "../../components/Counter"
 import { Button } from "../../components/buttons/Button"
 
 function Product() {
+    const navigate = useNavigate();
+
+    function handleClick() {
+        navigate(-1);
+    }
+
     return (
         <Wrapper>
             <Navigation>
-                <ArrowLeft size={24}/>
+                <ArrowLeft onClick={handleClick} size={24}/>
                 <CartButton quantity={3} />
             </Navigation>
             <Main>
                 <ProductInformation>
                     <ProductInformationHeader>
                         <ProductTitle>
-                            <Tag>ESPECIAL</Tag>
+                            <Tag background="product">ESPECIAL</Tag>
                             <span>Irlandês</span>
                         </ProductTitle>
                         
@@ -34,12 +41,16 @@ function Product() {
             <Footer>
                 <FooterSelectionWrapper>
                     <span>Selecione o tamanho:</span>
-                    <div>botão botão botão</div>
+                    <FooterSelectionOptions>
+                        <Button onClick={() => console.log('Select')} background="gray" type="select">114ml</Button>
+                        <Button onClick={() => console.log('Select')} background="gray" type="select">140ml</Button>
+                        <Button onClick={() => console.log('Select')} background="gray" type="select">227ml</Button>
+                    </FooterSelectionOptions>
                 </FooterSelectionWrapper>
                 <FooterActionWrapper>
                     <Counter>1</Counter>
                     <Button 
-                        variant="purple" 
+                        background="purple" 
                         onClick={() => console.log('Adicionado ao carrinho!')}
                     >ADICIONAR</Button>
                 </FooterActionWrapper>

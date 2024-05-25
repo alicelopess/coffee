@@ -1,10 +1,18 @@
+import { useNavigate } from 'react-router-dom'
 import { Wrapper, CartQuantityContainer } from "./style";
 import { ShoppingCart } from "@phosphor-icons/react";
+import { CartButtonProps } from "./types";
 
 
-export function CartButton({quantity}:{quantity:number}) {
+export function CartButton({quantity}:CartButtonProps) {
+    const navigate = useNavigate();
+
+    function handleClick() {
+        navigate("/cart");
+    }
+
     return (
-        <Wrapper>
+        <Wrapper onClick={handleClick}>
             <ShoppingCart 
                 size={20} 
                 weight="fill" 

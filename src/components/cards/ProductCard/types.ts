@@ -1,4 +1,4 @@
 export type PrimaryCardProps = {
     price: number,
-    cardOption?: 'primary' | 'secondary',
+    cardOption?: 'primary' | 'secondary', 
 }

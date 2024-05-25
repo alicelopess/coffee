@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import { Tag } from "../../Tag";
 import { CardImage } from "../CardImage";
 import { CardInfo } from "../CardInfo";
@@ -6,8 +7,14 @@ import { Wrapper } from "./style";
 import { PrimaryCardProps } from "./types";
 
 export function ProductCard({price, cardOption}:PrimaryCardProps) {
+    const navigate = useNavigate();
+
+    function handleClick() {
+        navigate("/product");
+    }
+
     return (
-        <Wrapper cardOption={cardOption}>
+        <Wrapper onClick={handleClick} cardOption={cardOption}>
             { cardOption === 'primary' || cardOption === undefined 
                 ? 
                     <>
