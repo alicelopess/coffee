@@ -26,6 +26,10 @@ function Home() {
                     <ProductCard price={9.99} cardOption='primary'></ProductCard>
                     <ProductCard price={9.99} cardOption='primary'></ProductCard>
                     <ProductCard price={9.99} cardOption='primary'></ProductCard>
+                    <ProductCard price={9.99} cardOption='primary'></ProductCard>
+                    <ProductCard price={9.99} cardOption='primary'></ProductCard>
+                    <ProductCard price={9.99} cardOption='primary'></ProductCard>
+                    <ProductCard price={9.99} cardOption='primary'></ProductCard>
                 </div>
                 
                 <div className={styles.catalogProductsSection}>
@@ -40,15 +44,27 @@ function Home() {
                     <div className={styles.catalogProductsList}>
                         <div className={styles.catalogProductFilteredList}>
                             <span className={styles.typeTitle}>Tradicionais</span>
-                            <ProductCard price={9.99} cardOption='secondary'></ProductCard>
-                            <ProductCard price={9.99} cardOption='secondary'></ProductCard>
-                            <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+                            <div className={styles.catalogProductFilteredListItems}>
+                                <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+                                <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+                                <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+                            </div>
                         </div>
                         <div className={styles.catalogProductFilteredList}>
                             <span className={styles.typeTitle}>Doces</span>
-                            <ProductCard price={9.99} cardOption='secondary'></ProductCard>
-                            <ProductCard price={9.99} cardOption='secondary'></ProductCard>
-                            <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+                            <div className={styles.catalogProductFilteredListItems}>
+                                <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+                                <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+                                <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+                            </div>
+                        </div>
+                        <div className={styles.catalogProductFilteredList}>
+                            <span className={styles.typeTitle}>Especiais</span>
+                            <div className={styles.catalogProductFilteredListItems}>
+                                <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+                                <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+                                <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+                            </div>
                         </div>
                     </div>
                 </div>

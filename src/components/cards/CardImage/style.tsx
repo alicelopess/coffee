@@ -42,9 +42,20 @@ export const Wrapper = styled.div<{imageSize:CardImageProps['imageSize'], cardOr
                 left: 0;
 
                 transform: translateX(8px) translateY(-16px);
+
+                /* @media only screen and (min-width: 640px) {
+                    width: 7.5rem;
+                    height: 7.5rem;
+
+                    transform: translateX(16px) translateY(-16px);
+                } */
             `
         }
     }}
+
+    /* @media only screen and (min-width: 640px) {
+        
+    } */
 `
 export const Image = styled.img`
     width: 100%;

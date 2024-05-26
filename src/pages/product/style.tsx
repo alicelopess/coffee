@@ -4,7 +4,6 @@ export const Wrapper = styled.div `
     height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr auto;
-    position: relative;
 `
 export const Navigation = styled.nav `
     padding: 20px 2rem;
@@ -18,6 +17,7 @@ export const Navigation = styled.nav `
     color: var(--white);
 `
 export const Main = styled.main `
+    position: relative;
     padding: .5rem 2rem 0;
 
     display: flex;
@@ -68,7 +68,7 @@ export const ProductImage = styled.div `
     height: 260px;
 
     position: absolute;
-    top: 370px;
+    bottom: 0;
 `
 
 export const Footer = styled.footer `

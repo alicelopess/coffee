@@ -21,6 +21,14 @@ export const Input = styled.input.attrs({
         line-height: 130%;
         color: var(--gray-600);
     }
+
+    /* @media only screen and (min-width: 1024px) {
+        padding: .875rem .875rem .875rem 2.5rem;
+
+        &::placeholder {
+        font-size: 1rem;
+        }
+    } */
 `
 export const SearchIcon = styled.div`
     color: var(--gray-600);

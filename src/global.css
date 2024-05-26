@@ -27,4 +27,19 @@
     --gray-100: #FAFAFA;
 
     --white: #FFFFFF;
+
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-md: 1rem;
+    --text-lg: 20px;
+
+    --title-xs: 14px;
+    --title-sm: 16px;
+    --title-md: 20px;
+    --title-lg: 24px;
+    --title-xl: 36px;
+
+    --button-text: 14px;
+    --tag-text: 10px;
+
 }

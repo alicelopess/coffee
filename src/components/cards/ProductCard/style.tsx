@@ -3,6 +3,7 @@ import { PrimaryCardProps } from "./types";
 
 export const Wrapper = styled.div<{cardOption:PrimaryCardProps['cardOption']}>`
     background-color: var(--gray-200);
+    width: 100%;
     min-width: 166.4px;
     height: fit-content;
     
@@ -24,17 +25,27 @@ export const Wrapper = styled.div<{cardOption:PrimaryCardProps['cardOption']}>`
     color: var(--yellow-dark);
 
     ${({cardOption}) => {
+        if (cardOption === 'primary') {
+            return css`
+                max-width: 166.4px;
+            `
+        }
         if (cardOption === 'secondary') {
             return css`
                 min-width: 311px;
     
-                padding: 1rem 1rem 1rem 7.25rem;
+                padding: 1rem 1rem 1rem 116px;
 
                 align-items: flex-start;
                 gap: .5rem;
                 
                 border-radius: 6px 36px 6px 36px;
                 box-shadow: 0 2px 8px 0 rgb(0, 0, 0 / 4%);
+
+                /* @media only screen and (min-width: 640px) {
+                    padding: 1rem 1rem 1rem 148px;
+                    gap: 1rem;
+                } */
             `
         }
     }}

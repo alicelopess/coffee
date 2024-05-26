@@ -28,6 +28,10 @@ export const Title = styled.span<{titleOptions:CardInfoProps['titleOptions']}>`
             `
         }
     }}
+
+    /* @media only screen and (min-width: 640px) {
+        font-size: var(--title-md);
+    } */
 `
 export const Description = styled.span<{alignOptions:CardInfoProps['alignOptions']}>`
     font-family: "Roboto", sans-serif;
@@ -40,6 +44,10 @@ export const Description = styled.span<{alignOptions:CardInfoProps['alignOptions
         if (alignOptions === 'left') {
             return css`
                 text-align: left;
+
+                /* @media only screen and (min-width: 640px) {
+                    font-size: var(--text-sm);
+                } */
             `
         }
     }}
