@@ -1,6 +1,6 @@
-import { ReactNode } from "react"
-
 export type CounterProps = {
-    children: ReactNode,
+    children: number,
     variant?: 'default' | 'outlined';
+    handleIncrement: () => void
+    handleDecrement: () => void
 }

@@ -1,4 +1,7 @@
+// import { getCartItems } from '../../../services/requests';
+
 import { useNavigate } from 'react-router-dom'
+
 import { Wrapper, CartQuantityContainer } from "./style";
 import { ShoppingCart } from "@phosphor-icons/react";
 import { CartButtonProps } from "./types";
@@ -12,7 +15,7 @@ export function CartButton({quantity}:CartButtonProps) {
     }
 
     return (
-        <Wrapper onClick={handleClick}>
+        <Wrapper onClick={() => {handleClick()}}>
             <ShoppingCart 
                 size={20} 
                 weight="fill" 

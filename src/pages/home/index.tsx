@@ -4,8 +4,24 @@ import { CartButton } from '../../components/buttons/CartButton'
 import { ProductCard } from '../../components/cards/ProductCard'
 import { Tag } from '../../components/Tag'
 import { SearchInput } from '../../components/inputs/SearchInput'
+import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Coffee } from '../../services/requests/types'
+import { getCoffees } from '../../services/requests'
 
 function Home() {
+    const navigate = useNavigate()
+    const [coffees, setCoffees] = useState<Coffee[]>([])
+
+    async function getCoffessData() {
+        const coffess = await getCoffees()
+        setCoffees(coffess)
+    }
+
+    useEffect(() => {
+        getCoffessData()
+    }, [])
+
     return (
         <>
             <section className={styles.introSection}>
@@ -23,13 +39,24 @@ function Home() {
             </section>
             <section className={styles.catalogSection}>
                 <div className={styles.catalogSugestionsSection}>
-                    <ProductCard price={9.99} cardOption='primary'></ProductCard>
-                    <ProductCard price={9.99} cardOption='primary'></ProductCard>
-                    <ProductCard price={9.99} cardOption='primary'></ProductCard>
-                    <ProductCard price={9.99} cardOption='primary'></ProductCard>
-                    <ProductCard price={9.99} cardOption='primary'></ProductCard>
-                    <ProductCard price={9.99} cardOption='primary'></ProductCard>
-                    <ProductCard price={9.99} cardOption='primary'></ProductCard>
+                    {
+                        coffees.map(coffee => {
+                            return(
+                                <ProductCard 
+                                    key={coffee.id}
+                                    title={coffee.name}
+                                    description={coffee.description}
+                                    price={coffee.price} 
+                                    imageUrl={coffee.url}
+                                    handleClick={() => {
+                                        navigate(`/product/${coffee.id}`)
+                                        // getOneCoffee(Number(coffee.id))
+                                    }}
+                                    cardOption='primary'
+                                />
+                            )
+                        })
+                    }
                 </div>
                 
                 <div className={styles.catalogProductsSection}>
@@ -45,25 +72,75 @@ function Home() {
                         <div className={styles.catalogProductFilteredList}>
                             <span className={styles.typeTitle}>Tradicionais</span>
                             <div className={styles.catalogProductFilteredListItems}>
-                                <ProductCard price={9.99} cardOption='secondary'></ProductCard>
-                                <ProductCard price={9.99} cardOption='secondary'></ProductCard>
-                                <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+                                {
+                                    coffees.map(coffee => {
+                                        if (coffee.type === 'Tradicional') {
+                                            return (
+                                                <ProductCard 
+                                                    key={coffee.id}
+                                                    title={coffee.name}
+                                                    description={coffee.description}
+                                                    price={coffee.price} 
+                                                    imageUrl={coffee.url}
+                                                    cardOption='secondary'
+                                                    handleClick={() => {
+                                                        navigate(`/product/${coffee.id}`)
+                                                        // getOneCoffee(Number(coffee.id))
+                                                    }}
+                                                />
+                                            )
+                                        }
+                                    })
+                                }
                             </div>
                         </div>
                         <div className={styles.catalogProductFilteredList}>
                             <span className={styles.typeTitle}>Doces</span>
                             <div className={styles.catalogProductFilteredListItems}>
-                                <ProductCard price={9.99} cardOption='secondary'></ProductCard>
-                                <ProductCard price={9.99} cardOption='secondary'></ProductCard>
-                                <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+                                {
+                                    coffees.map(coffee => {
+                                        if (coffee.type === 'Doce') {
+                                            return (
+                                                <ProductCard 
+                                                    key={coffee.id}
+                                                    title={coffee.name}
+                                                    description={coffee.description}
+                                                    price={coffee.price}
+                                                    imageUrl={coffee.url}
+                                                    cardOption='secondary'
+                                                    handleClick={() => {
+                                                        navigate(`/product/${coffee.id}`)
+                                                        // getOneCoffee(Number(coffee.id))
+                                                    }}
+                                                />
+                                            )
+                                        }
+                                    })
+                                }
                             </div>
                         </div>
                         <div className={styles.catalogProductFilteredList}>
                             <span className={styles.typeTitle}>Especiais</span>
                             <div className={styles.catalogProductFilteredListItems}>
-                                <ProductCard price={9.99} cardOption='secondary'></ProductCard>
-                                <ProductCard price={9.99} cardOption='secondary'></ProductCard>
-                                <ProductCard price={9.99} cardOption='secondary'></ProductCard>
+                                {
+                                    coffees.map(coffee => {
+                                        if (coffee.type === 'Especial') {
+                                            return (
+                                                <ProductCard 
+                                                    title={coffee.name}
+                                                    description={coffee.description}
+                                                    price={coffee.price} 
+                                                    imageUrl={coffee.url}
+                                                    cardOption='secondary'
+                                                    handleClick={() => {
+                                                        navigate(`/product/${coffee.id}`)
+                                                        // getOneCoffee(Number(coffee.id))
+                                                    }}
+                                                />
+                                            )
+                                        }
+                                    })
+                                }
                             </div>
                         </div>
                     </div>

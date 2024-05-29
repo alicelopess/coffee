@@ -1,4 +1,8 @@
-export type PrimaryCardProps = {
+export type ProductCardProps = {
+    title: string,
+    description: string,
     price: number,
-    cardOption?: 'primary' | 'secondary', 
+    imageUrl: string,
+    cardOption?: 'primary' | 'secondary',
+    handleClick: () => void
 }

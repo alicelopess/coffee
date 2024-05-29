@@ -4,6 +4,7 @@ export const Wrapper = styled.div `
     height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr auto;
+
 `
 export const Navigation = styled.nav `
     padding: 20px 2rem;
@@ -62,18 +63,24 @@ export const ProductPrice = styled.span `
     color: var(--yellow);
 `
 export const ProductImage = styled.div `
-    border: 1px solid violet;
+    /* border: 1px solid violet; */
     
-    width: 295px;
-    height: 260px;
+    width: 320px;
+    height: 276px;
 
     position: absolute;
     bottom: 0;
+    transform: translateY(20%);
+    
+    img {
+        position: absolute;
+        width: 100%;
+    }
 `
 
 export const Footer = styled.footer `
     min-height: 222px;
-    padding: 40px 2rem 2rem;
+    padding: 56px 2rem 2rem;
 
     background-color: var(--gray-100);
 

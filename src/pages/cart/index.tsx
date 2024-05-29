@@ -3,6 +3,9 @@ import { ArrowLeft } from "@phosphor-icons/react"
 import { Button } from "../../components/buttons/Button"
 import { Footer, FooterDescription, FooterPriceWrapper, Main, Header, HeaderTitle, Wrapper } from "./style"
 import { CartCard } from "../../components/cards/CartCard"
+import { getCartItems, removeItemFromCart } from '../../services/requests'
+import { useEffect, useState } from 'react'
+import { CoffeeInCart } from '../../services/requests/types'
 
 function Cart() {
     const navigate = useNavigate();
@@ -14,6 +17,19 @@ function Cart() {
         navigate('/checkout-success');
     }
 
+    const [cartContent, setCartContent] = useState<CoffeeInCart[]>([])
+
+    async function getCartContent() {
+        const cartContent = await getCartItems()
+        setCartContent(cartContent)
+        console.log(cartContent)
+    }
+
+    useEffect(() => {
+        getCartContent()
+    }, [cartContent.length])
+
+
     return (
         <Wrapper>
             <Header>
@@ -21,9 +37,21 @@ function Cart() {
                 <HeaderTitle>Carrinho</HeaderTitle>
             </Header>
             <Main>
-                <CartCard />
-                <CartCard />
-                <CartCard />
+                {
+                    cartContent.map(item => {
+                        return (
+                            <CartCard 
+                                id={item.id}
+                                title={item.name}
+                                size={227}
+                                imageUrl={item.url}
+                                quantity={item.quantity}
+                                amount={item.amount}
+                                //handleRemoveItemFromCart={async () => await removeItemFromCart(item.id)}
+                            />
+                        )
+                    })
+                }
             </Main>
             <Footer>
                 <FooterDescription>

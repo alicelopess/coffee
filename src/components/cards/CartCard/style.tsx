@@ -17,6 +17,10 @@ export const Wrapper = styled.div `
 export const CartItemImageWrapper = styled.div `
     width: 64px;
     height: 64px;
+
+    img {
+        width: 100%;
+    }
 `
 export const CartItemContent = styled.div `
     display: flex;

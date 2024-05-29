@@ -2,27 +2,47 @@ import { Trash } from "@phosphor-icons/react";
 import { Counter } from "../../Counter";
 import { IconButton } from "../../buttons/IconButton";
 import { ItemMeasure, ItemDescription, ItemPrice, CartItemActions, CartItemContent, CartItemInformation, Wrapper, CartItemImageWrapper } from "./style";
+import { CartCardProps } from "./types";
+import { useNavigate } from "react-router-dom";
 
-export function CartCard() {
+export function CartCard({
+    id,
+    title,
+    size,
+    imageUrl,
+    quantity,
+    amount,
+    handleIncrementItemOnCart,
+    handleDecrementItemOnCart,
+    handleRemoveItemFromCart,
+}:  CartCardProps) {
+    
+    const navigate = useNavigate()
+    const handleClickOnCard = () => navigate(`/product/${id}`)
+
     return (
         <Wrapper>
-            <CartItemImageWrapper>
-                <img src="#" alt="#" />
+            <CartItemImageWrapper onClick={handleClickOnCard}>
+                <img src={imageUrl} />
             </CartItemImageWrapper>
             <CartItemContent>
                 <CartItemInformation>
                 <ItemDescription>
-                    <span>Irlandês</span>
-                    <ItemMeasure>227ml</ItemMeasure>
+                    <span>{title}</span>
+                    <ItemMeasure>{size}ml</ItemMeasure>
                 </ItemDescription>
                 <ItemPrice>
                     R$
-                    <span>9,90</span>
+                    <span>{amount}</span>
                 </ItemPrice>
                 </CartItemInformation>
                 <CartItemActions>
-                    <Counter variant="outlined">1</Counter>
-                    <IconButton onClick={() => console.log('Remove Item!')}>
+                    <Counter 
+                        handleIncrement={handleIncrementItemOnCart} 
+                        handleDecrement={handleDecrementItemOnCart} 
+                        variant="outlined" 
+                    >{quantity}</Counter>
+                    <IconButton onClick={handleRemoveItemFromCart}>
                         <Trash size={20}/>
                     </IconButton>
                 </CartItemActions>

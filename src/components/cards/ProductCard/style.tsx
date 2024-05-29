@@ -1,11 +1,10 @@
 import styled, { css } from "styled-components";
-import { PrimaryCardProps } from "./types";
+import { ProductCardProps } from "./types";
 
-export const Wrapper = styled.div<{cardOption:PrimaryCardProps['cardOption']}>`
+export const Wrapper = styled.div<{cardOption:ProductCardProps['cardOption']}>`
     background-color: var(--gray-200);
     width: 100%;
     min-width: 166.4px;
-    height: fit-content;
     
     padding: 4.5rem .75rem 1rem;
 
@@ -13,6 +12,7 @@ export const Wrapper = styled.div<{cardOption:PrimaryCardProps['cardOption']}>`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     gap: .75rem;
     
     border: 1px solid var(--gray-300);

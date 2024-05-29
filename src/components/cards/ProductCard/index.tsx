@@ -1,28 +1,27 @@
-import { useNavigate } from "react-router-dom"
+
+
+// Components
 import { Tag } from "../../Tag";
 import { CardImage } from "../CardImage";
 import { CardInfo } from "../CardInfo";
 import { CardPrice } from "../CardPrice";
 import { Wrapper } from "./style";
-import { PrimaryCardProps } from "./types";
 
-export function ProductCard({price, cardOption}:PrimaryCardProps) {
-    const navigate = useNavigate();
+// Types
+import { ProductCardProps } from "./types";
 
-    function handleClick() {
-        navigate("/product");
-    }
+export function ProductCard({title, handleClick, description, price, cardOption, imageUrl}:ProductCardProps) {
 
     return (
         <Wrapper onClick={handleClick} cardOption={cardOption}>
             { cardOption === 'primary' || cardOption === undefined 
                 ? 
                     <>
-                    <CardImage />
+                    <CardImage src={imageUrl}/>
                     <Tag>Especial</Tag>
                     <CardInfo 
-                        title="Irlandês"
-                        description="Bebida a base de café, uísque irlandês, açúcar e chantilly"
+                        title={title}
+                        description={description}
                     />
                     <span>
                         R$
@@ -31,12 +30,12 @@ export function ProductCard({price, cardOption}:PrimaryCardProps) {
                     </>
                 : 
                     <>
-                    <CardImage imageSize="image-md" cardOrientation="horizontal"/>
+                    <CardImage imageSize="image-md" cardOrientation="horizontal" src={imageUrl}/>
                     <CardInfo 
                         titleOptions="title-sm" 
                         alignOptions="left"
-                        title="Expresso Tradicional"
-                        description="O tradicional café feito com água quente e grãos moídos"
+                        title={title}
+                        description={description}
                     />
                     <span>
                         R$
