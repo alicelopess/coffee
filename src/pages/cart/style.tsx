@@ -28,7 +28,7 @@ export const HeaderTitle = styled.span `
 
     justify-self: center;
 `
-export const Main = styled.footer `
+export const Main = styled.main `
     background-color: var(--gray-100);
     border-top:  1px solid var(--gray-300);
 `

@@ -1,6 +1,8 @@
+import { useCart } from '../../hooks/useCart' 
+
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { createCartItem, getOneCoffee } from '../../services/requests'
+import { getOneCoffee } from '../../services/requests'
 
 import { useNavigate } from 'react-router-dom'
 
@@ -16,6 +18,8 @@ function Product() {
     const { id: coffeeId } = useParams()
     const navigate = useNavigate();
 
+    const { cartContent, addCoffeeToCart } = useCart()
+
     const [coffee, setCoffee] = useState<Coffee>()
     console.log(coffee)
     
@@ -24,8 +28,12 @@ function Product() {
         setCoffee(coffeeData)
     }
 
-    function handleClick() {
+    function navigateGoBack() {
         navigate(-1);
+    }
+
+    function navigateToCart() {
+        navigate("/cart");
     }
 
     const [coffeeQuantityOutsideCart, setCoffeeQuantityOutsideCart] = useState(1)
@@ -47,8 +55,8 @@ function Product() {
     return (
         <Wrapper>
             <Navigation>
-                <ArrowLeft onClick={handleClick} size={24}/>
-                <CartButton quantity={3} />
+                <ArrowLeft onClick={navigateGoBack} size={24}/>
+                <CartButton handleClick={() => {navigateToCart()}} quantity={cartContent.length} />
             </Navigation>
             <Main>
                 <ProductInformation>
@@ -88,10 +96,16 @@ function Product() {
                         background="purple" 
                         // onClick={() => console.log('Adicionado ao carrinho!')}
                         onClick={() => {
-                            createCartItem({
-                                ...coffee,
+                            addCoffeeToCart({
+                                name: coffee?.name,
+                                description: coffee?.description,
+                                price: coffee?.price,
+                                type: coffee?.type,
+                                url: coffee?.url,
+                                coffeeId: coffee?.id,
                                 quantity: coffeeQuantityOutsideCart,
-                                amount: (coffeeQuantityOutsideCart * coffee?.price)
+                                amount: (coffeeQuantityOutsideCart * coffee?.price),
+                                coffeeSize: 227,
                             })
                         }}
                     >ADICIONAR</Button>

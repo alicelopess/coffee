@@ -9,13 +9,18 @@ export type Coffee = {
 }
 
 export interface CoffeeInCart extends Coffee {
-    // id?: string,
-    // coffeeId: string,
+    coffeeId: Coffee["id"],
+    id?: string,
     amount: number,
-    // quantity: number
+    coffeeSize: number,
 }
 
 export type CartOrder = {
     orderId: string,
     cart?: CoffeeInCart[]
+}
+
+export type UpdateCartItemQuantityParams = {
+    id: string,
+    quantity: number
 }

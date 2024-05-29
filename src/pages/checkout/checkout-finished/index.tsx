@@ -12,7 +12,7 @@ function CheckoutFinished() {
     return (
         <Wrapper>
             <ImageWrapper>
-                <img src="src/assets/checkout-finished.svg" alt="#" />
+                <img src="/assets/checkout-finished.svg" alt="#" />
             </ImageWrapper>
             <Content>
                 <ContentTitle>Uhu! Pedido confirmado</ContentTitle>

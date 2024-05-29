@@ -128,9 +128,21 @@ export default createServer({
         
         this.get("/orders")
 
+        this.patch("/orders/:id", (schema, request) => {
+            const newAttrs = JSON.parse(request.requestBody)
+            const id = request.params.id
+            const orderItem = schema.orders.find(id)
+
+            return orderItem.update(newAttrs)
+        })
+
         this.delete("/orders/:id", (schema, request) => {
             const id = request.params.id
             return schema.orders.find(id).destroy()
+        })
+
+        this.delete("/orders", (schema, request) => {
+            return schema.orders.destroy()
         })
     },
 

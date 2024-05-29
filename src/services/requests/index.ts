@@ -1,4 +1,4 @@
-import { Coffee, CoffeeInCart } from './types'
+import { Coffee, CoffeeInCart, UpdateCartItemQuantityParams } from './types'
 
 export async function getCoffees(): Promise<Coffee[]> {
     const response = await fetch("/api/coffees")
@@ -47,11 +47,25 @@ export async function getCartItems(): Promise<CoffeeInCart[]> {
     return data.orders
 }
 
-export async function removeItemFromCart(id:string) {
-    const response = await fetch(`/api/orders/${id}`, {
-        method: "DELETE"
+export async function updateCartItemQuantity(params:UpdateCartItemQuantityParams) {
+    const response = await fetch(`/api/orders/${params.id}`, {
+        method: "PATCH",
+        body: JSON.stringify({quantity: params.quantity}),
+        headers: {"Content-type": "application/json"}
     })
     const data = await response.json()
-
     console.log(data)
+    // return data.coffee
+}
+
+export async function removeItemFromCart(id:string) {
+    await fetch(`/api/orders/${id}`, {
+        method: "DELETE"
+    })
+}
+
+export async function finishPurchase() {
+    await fetch(`/api/orders`, {
+        method: "DELETE"
+    })
 }

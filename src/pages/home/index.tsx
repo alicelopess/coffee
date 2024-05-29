@@ -1,3 +1,5 @@
+import { useCart } from '../../hooks/useCart'
+
 import { MapPin } from '@phosphor-icons/react'
 import styles from './style.module.css'
 import { CartButton } from '../../components/buttons/CartButton'
@@ -12,10 +14,15 @@ import { getCoffees } from '../../services/requests'
 function Home() {
     const navigate = useNavigate()
     const [coffees, setCoffees] = useState<Coffee[]>([])
+    const { cartContent } = useCart()
 
     async function getCoffessData() {
         const coffess = await getCoffees()
         setCoffees(coffess)
+    }
+
+    function navigateToCart() {
+        navigate("/cart");
     }
 
     useEffect(() => {
@@ -30,7 +37,7 @@ function Home() {
                         <MapPin size={20} weight="fill" color="#8047F8" />
                         <span className={styles.location}>Porto Alegre, RS</span>
                     </div>
-                    <CartButton quantity={0} />
+                    <CartButton handleClick={() => {navigateToCart()}} quantity={cartContent.length} />
                 </nav>
                 <header className={styles.introSectionHeader}>
                     <span className={styles.headerTitle}>Encontre o café perfeito para qualquer hora do dia</span>

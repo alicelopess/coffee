@@ -1,3 +1,4 @@
 export type CartButtonProps = {
-    quantity: number
+    quantity: number,
+    handleClick: () => void
 }
